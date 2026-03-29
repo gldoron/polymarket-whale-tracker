@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polymarket Whale Tracker — Top 15 Wallets by Win Rate</title>
+  <meta name="description" content="Live Polymarket whale wallet tracker. Top 15 traders ranked by win rate, updated daily. Free lead magnet from the Polymarket Infrastructure Builder." />
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #0d0d0d; color: #e8e8e8; min-height: 100vh;
+      padding: 32px 16px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+    header { text-align: center; margin-bottom: 40px; }
+    header h1 { font-size: 2rem; font-weight: 700; color: #fff; }
+    header h1 span { color: #00e5a0; }
+    header p { color: #888; margin-top: 8px; font-size: 0.95rem; }
+    .meta { display: flex; gap: 16px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
+    .badge {
+      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 20px;
+      padding: 4px 14px; font-size: 0.8rem; color: #aaa;
+    }
+    .badge span { color: #00e5a0; font-weight: 600; }
+    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    thead th {
+      text-align: left; padding: 10px 12px; font-size: 0.75rem;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: #666; border-bottom: 1px solid #222;
+    }
+    tbody tr { border-bottom: 1px solid #1a1a1a; transition: background 0.15s; }
+    tbody tr:hover { background: #141414; }
+    td { padding: 14px 12px; font-size: 0.88rem; vertical-align: top; }
+    .rank { color: #555; font-weight: 600; width: 32px; }
+    .addr { font-family: 'SF Mono', 'Fira Code', monospace; color: #00e5a0; font-size: 0.82rem; }
+    .name { color: #aaa; font-size: 0.78rem; margin-top: 2px; }
+    .wr { font-weight: 700; }
+    .wr-high { color: #00e5a0; }
+    .wr-mid  { color: #f5a623; }
+    .trades  { color: #888; }
+    .market  { color: #ccc; font-size: 0.82rem; max-width: 260px; }
+    .market .price { color: #888; margin-top: 2px; font-size: 0.78rem; }
+    .section-title {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: #444; margin: 32px 0 12px;
+    }
+    .cta {
+      margin-top: 48px; background: #111; border: 1px solid #00e5a0;
+      border-radius: 12px; padding: 28px 24px; text-align: center;
+    }
+    .cta h2 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
+    .cta p  { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
+    .cta a  {
+      display: inline-block; background: #00e5a0; color: #000;
+      font-weight: 700; padding: 12px 28px; border-radius: 8px;
+      text-decoration: none; font-size: 0.95rem;
+    }
+    .cta a:hover { background: #00c98a; }
+    footer {
+      text-align: center; margin-top: 48px; color: #444; font-size: 0.78rem;
+    }
+    .updated { text-align: right; color: #444; font-size: 0.75rem; margin-bottom: 8px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1>🐋 Polymarket <span>Whale Tracker</span></h1>
+    <p>Top wallets by win rate — updated daily from live on-chain data. Free.</p>
+    <div class="meta">
+      <div class="badge">Mode: <span>Read-only</span></div>
+      <div class="badge">Source: <span>Polymarket public API</span></div>
+      <div class="badge">Updated: <span id="updated-date">—</span></div>
+    </div>
+  </header>
+
+  <div class="section-title">Top 15 Wallets by Win Rate</div>
+  <div class="updated" id="scan-meta"></div>
+
+  <table id="whale-table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Wallet</th>
+        <th>Win Rate</th>
+        <th>Trades</th>
+        <th>Most Recent Market</th>
+      </tr>
+    </thead>
+    <tbody id="whale-body">
+      <tr><td colspan="5" style="color:#555;padding:32px;text-align:center;">Loading live data...</td></tr>
+    </tbody>
+  </table>
+
+  <div class="cta">
+    <h2>Want the full copy-trading engine?</h2>
+    <p>We're building a tool that automatically mirrors top wallets — maker-only, non-custodial, risk-controlled. Get early access when it launches.</p>
+    <a href="mailto:polymarket@openclaw.ai?subject=Copy-Trading%20Engine%20Early%20Access">Get Early Access →</a>
+  </div>
+
+  <footer>
+    Polymarket Infrastructure Builder · Data from Polymarket public APIs · Not financial advice · Paper mode only
+  </footer>
+</div>
+
+<script>
+async function loadData() {
+  try {
+    const res = await fetch('whale-data.json');
+    if (!res.ok) throw new Error('data not found');
+    const data = await res.json();
+
+    document.getElementById('updated-date').textContent =
+      new Date(data.lastRun).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+    document.getElementById('scan-meta').textContent =
+      `${data.stats.walletsScanned} wallets scanned · ${data.stats.qualified} qualified · ${data.stats.newWallets} new this run`;
+
+    const tbody = document.getElementById('whale-body');
+    const rows = data.whales.slice(0, 15).map((w, i) => {
+      const wr = (w.winRate * 100).toFixed(1);
+      const wrClass = w.winRate >= 0.85 ? 'wr-high' : 'wr-mid';
+      const addr = `${w.address.slice(0,6)}...${w.address.slice(-4)}`;
+      const market = w.recentMarkets?.[0];
+      return `<tr>
+        <td class="rank">${i + 1}</td>
+        <td>
+          <div class="addr">${addr}</div>
+          ${w.name ? `<div class="name">${w.name}</div>` : ''}
+        </td>
+        <td class="wr ${wrClass}">${wr}%</td>
+        <td class="trades">${w.tradesCount}</td>
+        <td class="market">
+          ${market ? `<div>${market.title || '—'}</div><div class="price">@ $${parseFloat(market.price || 0).toFixed(3)} · ${market.side || ''}</div>` : '—'}
+        </td>
+      </tr>`;
+    }).join('');
+    tbody.innerHTML = rows || '<tr><td colspan="5" style="color:#555;padding:32px;text-align:center;">No qualified wallets this scan.</td></tr>';
+  } catch (e) {
+    document.getElementById('whale-body').innerHTML =
+      '<tr><td colspan="5" style="color:#555;padding:32px;text-align:center;">Live data unavailable — check back after next daily scan.</td></tr>';
+  }
+}
+loadData();
+</script>
+</body>
+</html>

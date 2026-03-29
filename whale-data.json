@@ -1,0 +1,460 @@
+{
+  "lastRun": "2026-03-29T15:00:08.719Z",
+  "stats": {
+    "walletsScanned": 223,
+    "newWallets": 83,
+    "qualified": 68
+  },
+  "whales": [
+    {
+      "address": "0x68fbf1ad0ddae83d876a2397083b83cd08dd4ebd",
+      "name": "kekmus",
+      "winRate": 1,
+      "tradesCount": 50,
+      "redeemsCount": 0,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:45AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.2,
+          "outcome": "Down",
+          "timestamp": 1774796354
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:45AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.2599998392726805,
+          "outcome": "Down",
+          "timestamp": 1774796350
+        },
+        {
+          "title": "Solana Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.29999986363630166,
+          "outcome": "Down",
+          "timestamp": 1774796292
+        }
+      ]
+    },
+    {
+      "address": "0x5fed54dc124d6bc35c67ed485cd5151f72c3f35d",
+      "name": "0x5Fed54dC124d6bC35C67ED485CD5151f72C3f35d-1773075889508",
+      "winRate": 1,
+      "tradesCount": 50,
+      "redeemsCount": 0,
+      "recentMarkets": [
+        {
+          "title": "Will Matt Gaetz win the 2028 Republican presidential nominat",
+          "side": "BUY",
+          "price": 0.008,
+          "outcome": "Yes",
+          "timestamp": 1774796384
+        },
+        {
+          "title": "Will Vivek Ramaswamy win the 2028 US Presidential Election?",
+          "side": "BUY",
+          "price": 0.006,
+          "outcome": "Yes",
+          "timestamp": 1774796330
+        },
+        {
+          "title": "Will Brian Kemp win the 2028 Republican presidential nominat",
+          "side": "BUY",
+          "price": 0.008,
+          "outcome": "Yes",
+          "timestamp": 1774796258
+        }
+      ]
+    },
+    {
+      "address": "0x8f6dc0d2e2d881fac8c2d189b78233b2b3dc6993",
+      "name": "0x8F6dc0D2e2d881faC8c2D189b78233B2b3dC6993-1772030012826",
+      "winRate": 1,
+      "tradesCount": 50,
+      "redeemsCount": 0,
+      "recentMarkets": [
+        {
+          "title": "XRP Up or Down - March 29, 10:45AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.06,
+          "outcome": "Up",
+          "timestamp": 1774796390
+        },
+        {
+          "title": "XRP Up or Down - March 29, 10:45AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.06,
+          "outcome": "Up",
+          "timestamp": 1774796390
+        },
+        {
+          "title": "XRP Up or Down - March 29, 10:45AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.06,
+          "outcome": "Up",
+          "timestamp": 1774796388
+        }
+      ]
+    },
+    {
+      "address": "0x31393e2f8333d4a6e2e31ca6424defe8b6cb9e2e",
+      "name": "hot-garbage",
+      "winRate": 1,
+      "tradesCount": 50,
+      "redeemsCount": 0,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 11:00AM-11:05AM ET",
+          "side": "BUY",
+          "price": 0.11,
+          "outcome": "Down",
+          "timestamp": 1774796474
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 11AM ET",
+          "side": "BUY",
+          "price": 0.31,
+          "outcome": "Down",
+          "timestamp": 1774796470
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 11:00AM-11:05AM ET",
+          "side": "BUY",
+          "price": 0.07,
+          "outcome": "Down",
+          "timestamp": 1774796470
+        }
+      ]
+    },
+    {
+      "address": "0x814de45404c20dd9956737a83f7c8b0b039eb842",
+      "name": "resfeber",
+      "winRate": 1,
+      "tradesCount": 50,
+      "redeemsCount": 0,
+      "recentMarkets": [
+        {
+          "title": "Will Kimi Antonelli be the 2026 F1 Drivers' Champion?",
+          "side": "BUY",
+          "price": 0.397,
+          "outcome": "Yes",
+          "timestamp": 1774766828
+        },
+        {
+          "title": "Will Kimi Antonelli be the 2026 F1 Drivers' Champion?",
+          "side": "BUY",
+          "price": 0.4,
+          "outcome": "Yes",
+          "timestamp": 1774766730
+        },
+        {
+          "title": "Will Kimi Antonelli be the 2026 F1 Drivers' Champion?",
+          "side": "BUY",
+          "price": 0.3972340425531915,
+          "outcome": "Yes",
+          "timestamp": 1774766718
+        }
+      ]
+    },
+    {
+      "address": "0xcf1d35c75c7978af572aad26b3b1dbacb46bffd8",
+      "name": null,
+      "winRate": 1,
+      "tradesCount": 50,
+      "redeemsCount": 0,
+      "recentMarkets": [
+        {
+          "title": "Will Stephen A. Smith win the 2028 Democratic presidential n",
+          "side": "SELL",
+          "price": 0.01,
+          "outcome": "Yes",
+          "timestamp": 1774766568
+        },
+        {
+          "title": "Will Stephen A. Smith win the 2028 Democratic presidential n",
+          "side": "BUY",
+          "price": 0.011,
+          "outcome": "Yes",
+          "timestamp": 1774766558
+        },
+        {
+          "title": "Will Stephen A. Smith win the 2028 Democratic presidential n",
+          "side": "SELL",
+          "price": 0.01,
+          "outcome": "Yes",
+          "timestamp": 1774766552
+        }
+      ]
+    },
+    {
+      "address": "0xe9806960a7b24b78d715fef823e596fd67fd57c9",
+      "name": "SunshineGinger",
+      "winRate": 1,
+      "tradesCount": 48,
+      "redeemsCount": 2,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:45AM-11:00AM ET",
+          "side": "SELL",
+          "price": 0.99,
+          "outcome": "Up",
+          "timestamp": 1774796400
+        },
+        {
+          "title": "XRP Up or Down - March 29, 10:45AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.05,
+          "outcome": "Up",
+          "timestamp": 1774796378
+        },
+        {
+          "title": "XRP Up or Down - March 29, 10:45AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.14,
+          "outcome": "Up",
+          "timestamp": 1774796316
+        }
+      ]
+    },
+    {
+      "address": "0x8f0f089224d9fa12543cdd12904ffc7bb0ef4988",
+      "name": null,
+      "winRate": 1,
+      "tradesCount": 48,
+      "redeemsCount": 2,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "SELL",
+          "price": 0.36,
+          "outcome": "Down",
+          "timestamp": 1774796222
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.48,
+          "outcome": "Down",
+          "timestamp": 1774796150
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "SELL",
+          "price": 0.53,
+          "outcome": "Up",
+          "timestamp": 1774796150
+        }
+      ]
+    },
+    {
+      "address": "0xf97d1b9bdd21bd59f94e2c1e933f7e2e66450077",
+      "name": null,
+      "winRate": 1,
+      "tradesCount": 48,
+      "redeemsCount": 2,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.07054049570606426,
+          "outcome": "Down",
+          "timestamp": 1774796346
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.1,
+          "outcome": "Down",
+          "timestamp": 1774796342
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.14808986659173323,
+          "outcome": "Down",
+          "timestamp": 1774796334
+        }
+      ]
+    },
+    {
+      "address": "0xc491143a3bd38fea48c192208d0d5019eeacf079",
+      "name": "MikaelCourtney",
+      "winRate": 1,
+      "tradesCount": 47,
+      "redeemsCount": 3,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 11:00AM-11:05AM ET",
+          "side": "BUY",
+          "price": 0.4,
+          "outcome": "Down",
+          "timestamp": 1774796404
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "SELL",
+          "price": 0.67,
+          "outcome": "Up",
+          "timestamp": 1774796232
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.4,
+          "outcome": "Up",
+          "timestamp": 1774796106
+        }
+      ]
+    },
+    {
+      "address": "0x21508f044fdb604630a321e430a50e5181acfa7b",
+      "name": "RollingChipsMk1",
+      "winRate": 1,
+      "tradesCount": 42,
+      "redeemsCount": 8,
+      "recentMarkets": [
+        {
+          "title": "XRP Up or Down - March 29, 11:00AM-11:05AM ET",
+          "side": "BUY",
+          "price": 0.29999996314495864,
+          "outcome": "Down",
+          "timestamp": 1774796520
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 11:00AM-11:05AM ET",
+          "side": "BUY",
+          "price": 0.23999996076922775,
+          "outcome": "Down",
+          "timestamp": 1774796510
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 11:00AM-11:15AM ET",
+          "side": "BUY",
+          "price": 0.38999996718749486,
+          "outcome": "Down",
+          "timestamp": 1774796510
+        }
+      ]
+    },
+    {
+      "address": "0x11781b402a7a37a4b96843acccfd33ef397e04f1",
+      "name": null,
+      "winRate": 1,
+      "tradesCount": 37,
+      "redeemsCount": 13,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:30AM-10:35AM ET",
+          "side": "BUY",
+          "price": 0.43,
+          "outcome": "Down",
+          "timestamp": 1774794730
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:20AM-10:25AM ET",
+          "side": "BUY",
+          "price": 0.43,
+          "outcome": "Up",
+          "timestamp": 1774794132
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 7:15AM-7:20AM ET",
+          "side": "BUY",
+          "price": 0.43,
+          "outcome": "Up",
+          "timestamp": 1774783040
+        }
+      ]
+    },
+    {
+      "address": "0x1f4ed340142b3fe6485e2a6cab782040a55fe935",
+      "name": "kingsendo",
+      "winRate": 1,
+      "tradesCount": 32,
+      "redeemsCount": 18,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:50AM-10:55AM ET",
+          "side": "SELL",
+          "price": 0.99,
+          "outcome": "Up",
+          "timestamp": 1774796240
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.43,
+          "outcome": "Down",
+          "timestamp": 1774796176
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:50AM-10:55AM ET",
+          "side": "BUY",
+          "price": 0.43,
+          "outcome": "Up",
+          "timestamp": 1774795904
+        }
+      ]
+    },
+    {
+      "address": "0xbc4a65b5ff152119540c92955be6e680c5567098",
+      "name": "lonelyisland",
+      "winRate": 1,
+      "tradesCount": 28,
+      "redeemsCount": 22,
+      "recentMarkets": [
+        {
+          "title": "Bitcoin Up or Down - March 29, 11:00AM-11:05AM ET",
+          "side": "BUY",
+          "price": 0.16,
+          "outcome": "Down",
+          "timestamp": 1774796426
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET",
+          "side": "BUY",
+          "price": 0.3,
+          "outcome": "Down",
+          "timestamp": 1774796230
+        },
+        {
+          "title": "Bitcoin Up or Down - March 29, 10:50AM-10:55AM ET",
+          "side": "BUY",
+          "price": 0.29364715006060593,
+          "outcome": "Up",
+          "timestamp": 1774796080
+        }
+      ]
+    },
+    {
+      "address": "0x765d6abe5055b0bc7ae3484112538acb175b51af",
+      "name": "0x765D6ABe5055B0bc7AE3484112538acB175b51af-1773941682245",
+      "winRate": 1,
+      "tradesCount": 24,
+      "redeemsCount": 26,
+      "recentMarkets": [
+        {
+          "title": "Ethereum Up or Down - March 29, 10:50AM-10:55AM ET",
+          "side": "BUY",
+          "price": 0.44,
+          "outcome": "Down",
+          "timestamp": 1774795932
+        },
+        {
+          "title": "Ethereum Up or Down - March 29, 10:45AM-10:50AM ET",
+          "side": "BUY",
+          "price": 0.21,
+          "outcome": "Up",
+          "timestamp": 1774795658
+        },
+        {
+          "title": "Ethereum Up or Down - March 29, 10:25AM-10:30AM ET",
+          "side": "BUY",
+          "price": 0.21,
+          "outcome": "Up",
+          "timestamp": 1774794424
+        }
+      ]
+    }
+  ]
+}
