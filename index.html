@@ -4,144 +4,449 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Polymarket Whale Tracker — Top 15 Wallets by Win Rate</title>
-  <meta name="description" content="Live Polymarket whale wallet tracker. Top 15 traders ranked by win rate, updated daily. Free lead magnet from the Polymarket Infrastructure Builder." />
+  <meta name="description" content="Live Polymarket whale wallet tracker. Top 15 traders ranked by win rate, updated daily. Free. No signup required." />
+  <meta property="og:title" content="Polymarket Whale Tracker — Top 15 Wallets" />
+  <meta property="og:description" content="See who the top Polymarket traders are betting on — updated daily, completely free." />
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #16161f;
+      --border: #1e1e2a;
+      --green: #00e5a0;
+      --green-dim: #00e5a015;
+      --yellow: #f5a623;
+      --red: #ff6b6b;
+      --text: #e2e2e8;
+      --muted: #6b6b7e;
+      --muted2: #3a3a4a;
+    }
+    html { scroll-behavior: smooth; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: #0d0d0d; color: #e8e8e8; min-height: 100vh;
-      padding: 32px 16px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0;
+      line-height: 1.5;
     }
-    .container { max-width: 860px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 40px; }
-    header h1 { font-size: 2rem; font-weight: 700; color: #fff; }
-    header h1 span { color: #00e5a0; }
-    header p { color: #888; margin-top: 8px; font-size: 0.95rem; }
-    .meta { display: flex; gap: 16px; justify-content: center; margin-top: 16px; flex-wrap: wrap; }
-    .badge {
-      background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 20px;
-      padding: 4px 14px; font-size: 0.8rem; color: #aaa;
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(160deg, #0d1117 0%, #0a0a0f 60%);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 24px 40px;
+      text-align: center;
     }
-    .badge span { color: #00e5a0; font-weight: 600; }
-    table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-    thead th {
-      text-align: left; padding: 10px 12px; font-size: 0.75rem;
-      text-transform: uppercase; letter-spacing: 0.08em;
-      color: #666; border-bottom: 1px solid #222;
+    .hero-label {
+      display: inline-block;
+      background: var(--green-dim);
+      border: 1px solid #00e5a040;
+      color: var(--green);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
     }
-    tbody tr { border-bottom: 1px solid #1a1a1a; transition: background 0.15s; }
-    tbody tr:hover { background: #141414; }
-    td { padding: 14px 12px; font-size: 0.88rem; vertical-align: top; }
-    .rank { color: #555; font-weight: 600; width: 32px; }
-    .addr { font-family: 'SF Mono', 'Fira Code', monospace; color: #00e5a0; font-size: 0.82rem; }
-    .name { color: #aaa; font-size: 0.78rem; margin-top: 2px; }
-    .wr { font-weight: 700; }
-    .wr-high { color: #00e5a0; }
-    .wr-mid  { color: #f5a623; }
-    .trades  { color: #888; }
-    .market  { color: #ccc; font-size: 0.82rem; max-width: 260px; }
-    .market .price { color: #888; margin-top: 2px; font-size: 0.78rem; }
+    h1 {
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+    }
+    h1 .accent { color: var(--green); }
+    .hero-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 12px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .stats-row {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
+    .stat-chip {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 18px;
+      text-align: center;
+      min-width: 100px;
+    }
+    .stat-chip .num {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--green);
+      display: block;
+    }
+    .stat-chip .lbl {
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .updated-bar {
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: var(--muted2);
+    }
+    .updated-bar .dot {
+      display: inline-block;
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--green);
+      margin-right: 6px;
+      animation: pulse 2s ease-in-out infinite;
+      vertical-align: middle;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ── MAIN TABLE ── */
+    .main { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
     .section-title {
-      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
-      color: #444; margin: 32px 0 12px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
     }
-    .cta {
-      margin-top: 48px; background: #111; border: 1px solid #00e5a0;
-      border-radius: 12px; padding: 28px 24px; text-align: center;
+    .table-wrap {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
     }
-    .cta h2 { font-size: 1.2rem; color: #fff; margin-bottom: 8px; }
-    .cta p  { color: #888; font-size: 0.9rem; margin-bottom: 20px; }
-    .cta a  {
-      display: inline-block; background: #00e5a0; color: #000;
-      font-weight: 700; padding: 12px 28px; border-radius: 8px;
-      text-decoration: none; font-size: 0.95rem;
+    table { width: 100%; border-collapse: collapse; }
+    thead { background: var(--surface2); }
+    thead th {
+      padding: 10px 14px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      text-align: left;
+      border-bottom: 1px solid var(--border);
     }
-    .cta a:hover { background: #00c98a; }
+    tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--surface2); }
+    td { padding: 14px; font-size: 0.875rem; vertical-align: middle; }
+    .td-rank { color: var(--muted); font-size: 1rem; width: 44px; text-align: center; }
+    .td-wallet { min-width: 140px; }
+    .wallet-addr {
+      font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+      color: var(--green);
+      font-size: 0.8rem;
+      letter-spacing: 0.02em;
+    }
+    .wallet-name { color: var(--muted); font-size: 0.75rem; margin-top: 3px; }
+    .td-wr { font-weight: 700; font-size: 1rem; white-space: nowrap; }
+    .td-trades { color: var(--muted); text-align: center; }
+    .td-market { max-width: 280px; }
+    .market-title { color: var(--text); font-size: 0.83rem; line-height: 1.35; }
+    .market-meta { margin-top: 4px; font-size: 0.74rem; color: var(--muted); }
+    .price-tag { color: var(--muted); }
+
+    /* ── CTA ── */
+    .cta-box {
+      margin-top: 40px;
+      background: linear-gradient(135deg, #111118 0%, #0f1a14 100%);
+      border: 1px solid #00e5a030;
+      border-radius: 16px;
+      padding: 36px 28px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, #00e5a010 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box h2 { font-size: 1.35rem; font-weight: 700; color: #fff; margin-bottom: 10px; }
+    .cta-box p { color: var(--muted); font-size: 0.9rem; max-width: 460px; margin: 0 auto 24px; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--green);
+      color: #000;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 13px 32px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: transform 0.1s, background 0.15s;
+    }
+    .cta-btn:hover { background: #00c98a; transform: translateY(-1px); }
+    .cta-note { margin-top: 12px; font-size: 0.75rem; color: var(--muted2); }
+
+    /* ── FOOTER ── */
     footer {
-      text-align: center; margin-top: 48px; color: #444; font-size: 0.78rem;
+      text-align: center;
+      padding: 28px 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.75rem;
+      color: var(--muted2);
     }
-    .updated { text-align: right; color: #444; font-size: 0.75rem; margin-bottom: 8px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      .td-market { display: none; }
+      thead th:last-child { display: none; }
+      h1 { font-size: 1.6rem; }
+    }
   </style>
 </head>
 <body>
-<div class="container">
-  <header>
-    <h1>🐋 Polymarket <span>Whale Tracker</span></h1>
-    <p>Top wallets by win rate — updated daily from live on-chain data. Free.</p>
-    <div class="meta">
-      <div class="badge">Mode: <span>Read-only</span></div>
-      <div class="badge">Source: <span>Polymarket public API</span></div>
-      <div class="badge">Updated: <span id="updated-date">—</span></div>
+
+<div class="hero">
+  <div class="hero-label">🐋 Free · No Signup · Updated Daily</div>
+  <h1>Polymarket <span class="accent">Whale Tracker</span></h1>
+  <p class="hero-sub">The top 15 on-chain traders ranked by win rate — discovered dynamically from live trade data. Free forever.</p>
+  <div class="stats-row">
+    <div class="stat-chip">
+      <span class="num">223</span>
+      <span class="lbl">Wallets Scanned</span>
     </div>
-  </header>
-
-  <div class="section-title">Top 15 Wallets by Win Rate</div>
-  <div class="updated" id="scan-meta"></div>
-
-  <table id="whale-table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>Wallet</th>
-        <th>Win Rate</th>
-        <th>Trades</th>
-        <th>Most Recent Market</th>
-      </tr>
-    </thead>
-    <tbody id="whale-body">
-      <tr><td colspan="5" style="color:#555;padding:32px;text-align:center;">Loading live data...</td></tr>
-    </tbody>
-  </table>
-
-  <div class="cta">
-    <h2>Want the full copy-trading engine?</h2>
-    <p>We're building a tool that automatically mirrors top wallets — maker-only, non-custodial, risk-controlled. Get early access when it launches.</p>
-    <a href="mailto:polymarket@openclaw.ai?subject=Copy-Trading%20Engine%20Early%20Access">Get Early Access →</a>
+    <div class="stat-chip">
+      <span class="num">68</span>
+      <span class="lbl">Qualified (≥62% WR)</span>
+    </div>
+    <div class="stat-chip">
+      <span class="num">Daily</span>
+      <span class="lbl">Update Frequency</span>
+    </div>
+    <div class="stat-chip">
+      <span class="num">Free</span>
+      <span class="lbl">Always</span>
+    </div>
   </div>
-
-  <footer>
-    Polymarket Infrastructure Builder · Data from Polymarket public APIs · Not financial advice · Paper mode only
-  </footer>
+  <div class="updated-bar">
+    <span class="dot"></span>Last updated: Mar 29, 2026 at 03:00 PM UTC
+  </div>
 </div>
 
-<script>
-async function loadData() {
-  try {
-    const res = await fetch('whale-data.json');
-    if (!res.ok) throw new Error('data not found');
-    const data = await res.json();
+<div class="main">
+  <div class="section-header">
+    <div class="section-title">Top 15 Wallets by Win Rate</div>
+  </div>
 
-    document.getElementById('updated-date').textContent =
-      new Date(data.lastRun).toLocaleDateString('en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-    document.getElementById('scan-meta').textContent =
-      `${data.stats.walletsScanned} wallets scanned · ${data.stats.qualified} qualified · ${data.stats.newWallets} new this run`;
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:center">#</th>
+          <th>Wallet</th>
+          <th>Win Rate</th>
+          <th style="text-align:center">Trades</th>
+          <th>Most Recent Market</th>
+        </tr>
+      </thead>
+      <tbody>
+        
+    <tr>
+      <td class="td-rank">🥇</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x68fb...4ebd</div>
+        <div class="wallet-name">kekmus</div>
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">50</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 10:45AM-11:00AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Down · <span class="price-tag">20.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">🥈</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x5fed...f35d</div>
+        
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">50</td>
+      <td class="td-market"><div class="market-title">Will Matt Gaetz win the 2028 Republican presidential no…</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Yes · <span class="price-tag">0.8¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">🥉</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x8f6d...6993</div>
+        
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">50</td>
+      <td class="td-market"><div class="market-title">XRP Up or Down - March 29, 10:45AM-11:00AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Up · <span class="price-tag">6.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">4</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x3139...9e2e</div>
+        <div class="wallet-name">hot-garbage</div>
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">50</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 11:00AM-11:05AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Down · <span class="price-tag">11.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">5</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x814d...b842</div>
+        <div class="wallet-name">resfeber</div>
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">50</td>
+      <td class="td-market"><div class="market-title">Will Kimi Antonelli be the 2026 F1 Drivers' Champion?</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Yes · <span class="price-tag">39.7¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">6</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0xcf1d...ffd8</div>
+        
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">50</td>
+      <td class="td-market"><div class="market-title">Will Stephen A. Smith win the 2028 Democratic president…</div>
+          <div class="market-meta"><span style="color:#ff6b6b">SELL</span> Yes · <span class="price-tag">1.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">7</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0xe980...57c9</div>
+        <div class="wallet-name">SunshineGinger</div>
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">48</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 10:45AM-11:00AM ET</div>
+          <div class="market-meta"><span style="color:#ff6b6b">SELL</span> Up · <span class="price-tag">99.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">8</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x8f0f...4988</div>
+        
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">48</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET</div>
+          <div class="market-meta"><span style="color:#ff6b6b">SELL</span> Down · <span class="price-tag">36.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">9</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0xf97d...0077</div>
+        
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">48</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 10:55AM-11:00AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Down · <span class="price-tag">7.1¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">10</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0xc491...f079</div>
+        <div class="wallet-name">MikaelCourtney</div>
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">47</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 11:00AM-11:05AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Down · <span class="price-tag">40.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">11</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x2150...fa7b</div>
+        <div class="wallet-name">RollingChipsMk1</div>
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">42</td>
+      <td class="td-market"><div class="market-title">XRP Up or Down - March 29, 11:00AM-11:05AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Down · <span class="price-tag">30.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">12</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x1178...04f1</div>
+        
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">37</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 10:30AM-10:35AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Down · <span class="price-tag">43.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">13</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x1f4e...e935</div>
+        <div class="wallet-name">kingsendo</div>
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">32</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 10:50AM-10:55AM ET</div>
+          <div class="market-meta"><span style="color:#ff6b6b">SELL</span> Up · <span class="price-tag">99.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">14</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0xbc4a...7098</div>
+        <div class="wallet-name">lonelyisland</div>
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">28</td>
+      <td class="td-market"><div class="market-title">Bitcoin Up or Down - March 29, 11:00AM-11:05AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Down · <span class="price-tag">16.0¢</span></div></td>
+    </tr>
+    <tr>
+      <td class="td-rank">15</td>
+      <td class="td-wallet">
+        <div class="wallet-addr">0x765d...51af</div>
+        
+      </td>
+      <td class="td-wr" style="color:#00e5a0">100%</td>
+      <td class="td-trades">24</td>
+      <td class="td-market"><div class="market-title">Ethereum Up or Down - March 29, 10:50AM-10:55AM ET</div>
+          <div class="market-meta"><span style="color:#00e5a0">BUY</span> Down · <span class="price-tag">44.0¢</span></div></td>
+    </tr>
+      </tbody>
+    </table>
+  </div>
 
-    const tbody = document.getElementById('whale-body');
-    const rows = data.whales.slice(0, 15).map((w, i) => {
-      const wr = (w.winRate * 100).toFixed(1);
-      const wrClass = w.winRate >= 0.85 ? 'wr-high' : 'wr-mid';
-      const addr = `${w.address.slice(0,6)}...${w.address.slice(-4)}`;
-      const market = w.recentMarkets?.[0];
-      return `<tr>
-        <td class="rank">${i + 1}</td>
-        <td>
-          <div class="addr">${addr}</div>
-          ${w.name ? `<div class="name">${w.name}</div>` : ''}
-        </td>
-        <td class="wr ${wrClass}">${wr}%</td>
-        <td class="trades">${w.tradesCount}</td>
-        <td class="market">
-          ${market ? `<div>${market.title || '—'}</div><div class="price">@ $${parseFloat(market.price || 0).toFixed(3)} · ${market.side || ''}</div>` : '—'}
-        </td>
-      </tr>`;
-    }).join('');
-    tbody.innerHTML = rows || '<tr><td colspan="5" style="color:#555;padding:32px;text-align:center;">No qualified wallets this scan.</td></tr>';
-  } catch (e) {
-    document.getElementById('whale-body').innerHTML =
-      '<tr><td colspan="5" style="color:#555;padding:32px;text-align:center;">Live data unavailable — check back after next daily scan.</td></tr>';
-  }
-}
-loadData();
-</script>
+  <div class="cta-box">
+    <h2>Want to copy these wallets automatically?</h2>
+    <p>We're building a non-custodial copy-trading engine that mirrors top whale positions — maker-only, zero-fee geopolitical markets, your wallet your keys.</p>
+    <a class="cta-btn" href="mailto:polymarket@openclaw.ai?subject=Copy-Trading%20Engine%20Early%20Access">Get Early Access →</a>
+    <div class="cta-note">Free early access · No financial advice · Paper mode available</div>
+  </div>
+</div>
+
+<footer>
+  Polymarket Infrastructure Builder &nbsp;·&nbsp; Data sourced from Polymarket public APIs &nbsp;·&nbsp; Not financial advice &nbsp;·&nbsp; <a href="whale-data.json" style="color:inherit">Raw JSON ↗</a>
+</footer>
+
 </body>
 </html>
