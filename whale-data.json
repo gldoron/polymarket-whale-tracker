@@ -64,7 +64,10 @@
           "outcome": "Yes",
           "timestamp": 1774796258
         }
-      ]
+      ],
+      "geoTrades": 47,
+      "geoRatio": 94,
+      "isGeoWhale": true
     },
     {
       "address": "0x8f6dc0d2e2d881fac8c2d189b78233b2b3dc6993",
@@ -184,7 +187,10 @@
           "outcome": "Yes",
           "timestamp": 1774766552
         }
-      ]
+      ],
+      "geoTrades": 50,
+      "geoRatio": 100,
+      "isGeoWhale": true
     },
     {
       "address": "0xe9806960a7b24b78d715fef823e596fd67fd57c9",
@@ -456,5 +462,153 @@
         }
       ]
     }
-  ]
+  ],
+  "geoWhales": [
+    {
+      "address": "0xcf1d35c75c7978af572aad26b3b1dbacb46bffd8",
+      "name": "0xcf1d35c7",
+      "winRate": 1,
+      "tradesCount": 50,
+      "geoTrades": 50,
+      "geoRatio": 100,
+      "isGeoWhale": true,
+      "recentMarkets": [
+        {
+          "title": "Will Stephen A. Smith win the 2028 Democratic pres",
+          "side": "SELL",
+          "price": 0.01,
+          "outcome": "Yes"
+        },
+        {
+          "title": "Will Stephen A. Smith win the 2028 Democratic pres",
+          "side": "BUY",
+          "price": 0.011,
+          "outcome": "Yes"
+        },
+        {
+          "title": "Will Stephen A. Smith win the 2028 Democratic pres",
+          "side": "SELL",
+          "price": 0.01,
+          "outcome": "Yes"
+        }
+      ]
+    },
+    {
+      "address": "0x5fed54dc124d6bc35c67ed485cd5151f72c3f35d",
+      "name": "0x5Fed54dC124d6bC35C67ED485CD5151f72C3f35d-1773075889508",
+      "winRate": 1,
+      "tradesCount": 50,
+      "geoTrades": 47,
+      "geoRatio": 94,
+      "isGeoWhale": true,
+      "recentMarkets": [
+        {
+          "title": "Will Ron DeSantis win the 2028 US Presidential Ele",
+          "side": "SELL",
+          "price": 0.016999988387323698,
+          "outcome": "Yes"
+        },
+        {
+          "title": "Will Ron DeSantis win the 2028 US Presidential Ele",
+          "side": "SELL",
+          "price": 0.016999989451281835,
+          "outcome": "Yes"
+        },
+        {
+          "title": "Will Ron DeSantis win the 2028 US Presidential Ele",
+          "side": "SELL",
+          "price": 0.016999991002659552,
+          "outcome": "Yes"
+        }
+      ]
+    },
+    {
+      "address": "0xaf76b8ef0203e08fc5f7a376ce4f8e3d560cc9ba",
+      "name": "rtQRQrqwer",
+      "winRate": 0.75,
+      "tradesCount": 49,
+      "geoTrades": 47,
+      "geoRatio": 96,
+      "isGeoWhale": true,
+      "recentMarkets": [
+        {
+          "title": "Will any European country expel a U.S. ambassador ",
+          "side": "BUY",
+          "price": 0.9969999983918512,
+          "outcome": "No"
+        },
+        {
+          "title": "Will the Iranian regime fall by March 31?",
+          "side": "BUY",
+          "price": 0.995,
+          "outcome": "No"
+        },
+        {
+          "title": "China x Taiwan military clash by December 31?",
+          "side": "BUY",
+          "price": 0.9969999995488042,
+          "outcome": "No"
+        }
+      ]
+    },
+    {
+      "address": "0x86a6bcd9a1d302ef258475cf66e50f8e62e01b3e",
+      "name": "velto92",
+      "winRate": 0.6944,
+      "tradesCount": 50,
+      "geoTrades": 29,
+      "geoRatio": 58,
+      "isGeoWhale": true,
+      "recentMarkets": [
+        {
+          "title": "US x Iran ceasefire by April 7?",
+          "side": "BUY",
+          "price": 0.069999997424,
+          "outcome": "Yes"
+        },
+        {
+          "title": "US x Iran ceasefire by March 31?",
+          "side": "BUY",
+          "price": 0.016,
+          "outcome": "Yes"
+        },
+        {
+          "title": "US forces enter Iran by April 30?",
+          "side": "BUY",
+          "price": 0.7,
+          "outcome": "Yes"
+        }
+      ]
+    },
+    {
+      "address": "0x209b74b7d7c15fa1e5a65a7711b7964699ed5540",
+      "name": "Northwick",
+      "winRate": 0.7143,
+      "tradesCount": 33,
+      "geoTrades": 18,
+      "geoRatio": 55,
+      "isGeoWhale": true,
+      "recentMarkets": [
+        {
+          "title": "Will Greece send warships through the Strait of Ho",
+          "side": "SELL",
+          "price": 0.029,
+          "outcome": "Yes"
+        },
+        {
+          "title": "Will Greece send warships through the Strait of Ho",
+          "side": "BUY",
+          "price": 0.026,
+          "outcome": "Yes"
+        },
+        {
+          "title": "Will Greece send warships through the Strait of Ho",
+          "side": "BUY",
+          "price": 0.026,
+          "outcome": "Yes"
+        }
+      ]
+    }
+  ],
+  "lastGeoScan": "2026-03-29T20:32:50.282Z"
 }
